@@ -1,5 +1,5 @@
 /*
-implementation of prority based scheduling algorithm using array .
+implebhhjjhbhhhguumentation of prority based scheduling algorithm using array .
 calculate . 
 a. CT , TAT , 
 b. execution order 
