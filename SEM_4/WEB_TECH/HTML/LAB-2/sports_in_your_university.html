@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Sports Selection</title>
+  <style>
+    form {
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color:skyblue;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(red, green, blue, alpha);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: green;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="" method="post">
+   
+    Name<input type="text" name="name"><br>
+    Password<input type="password" name="password"><br>
+    Address<input type="Address" name="Address"><br>
+  
+    Select Game<select id="selectGame" name="selectGame">
+      <option value="football">Football</option>
+      <option value="basketball">Basketball</option>
+      <option value="volleyball">Volleyball</option>
+      <option value="tennis">Tennis</option>
+    </select>
+
+    Gender<select id="Gender" name="Gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="other">other</option>
+    </select>
+
+
+    Age<input type="number"  name="age"><br>
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>
