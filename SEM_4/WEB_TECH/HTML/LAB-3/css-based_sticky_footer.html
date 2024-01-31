@@ -3,39 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Sticky Footer Example</title>
+    <title>Enhanced Website</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            font-family: 'Arial', sans-serif; 
             height: 100vh;
+        }
+
+        nav {
             display: flex;
-            flex-direction: column;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .footer {
+            justify-content: center;
+            align-items: center;
             background-color: #333;
-            color: white;
+            height: 50px;
+        }
+
+        nav a {
+            color: aqua;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav a:hover, nav a:focus {
+            transform: scale(1.2);
+        }
+
+        main {
+            padding: 20px;
+            margin-top: 80px; /* Adjusted to account for the fixed navbar */
+        }
+
+        footer {
+            background-color: black;
+            color: #fff;
             padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
 
     <div class="content">
-        <h1>Your Page Content Goes Here</h1>
-        <p>gddhkndsvdyuajsdkabdvzmxsjdghjjswugdsnxkan</p>
-    </div>
+        <img src="https://www.worldatlas.com/r/w960-q80/upload/37/d0/9d/in-01.jpg"alt="India Image">
+        <h1>About India</h1>
+        <p>India, officially known as the Republic of India, is a diverse and vibrant country located in South Asia. With a rich history spanning thousands of years, India is known for its cultural heritage, religious diversity, and economic dynamism.</p>
 
-    <div class="footer">
-        <p>This is a sticky footer.</p>
-    </div>
+        <h2>Geography and Demographics:</h2>
+        <p>India is the seventh-largest country in the world by land area and the second-most populous, home to over 1.3 billion people. The country is characterized by diverse geographical features, ranging from the towering Himalayan mountain range in the north to the vast Gangetic plains and the coastal regions in the south. India shares its borders with Pakistan, China, Nepal, Bhutan, Bangladesh, and Myanmar.</p>
+            
+        <h2> Cultural Heritage:</h2>
+            <p>India has a deep cultural heritage that has influenced art, literature, music, and philosophy across the world. The ancient civilization of the Indus Valley, the Maurya and Gupta empires, and the Mughal rule are some of the key historical periods that have shaped the nation. The country is also known for its classical arts, including Bharatanatyam and Kathak dance forms, classical music, and a rich tradition of literature in various languages.</p>
+            
+        <h2>Religious Diversity</h2>
+        <p>India is a melting pot of religions, with Hinduism, Islam, Christianity, Sikhism, Buddhism, and Jainism being among the major ones. The country celebrates numerous festivals, each marked by unique rituals, customs, and traditions. Diwali, Holi, Eid, Christmas, and Navratri are some of the widely celebrated festivals that bring people together, transcending religious boundaries.</p>
+            
+        <h2>Economic Growth:</h2>
+        <p>In recent decades, India has experienced significant economic growth and development. The country has a diverse economy, with agriculture, manufacturing, and services sectors contributing to its GDP. Information technology, software services, and pharmaceuticals are some of the industries where India has made remarkable strides. Cities like Mumbai, Delhi, Bangalore, and Hyderabad have become major economic hubs, attracting global investment and fostering innovation.</p>
+        <h2>Challenges and Opportunities:</h2>
+        <p>India, despite its progress, faces various challenges, including poverty, environmental degradation, and social inequality. The government has been actively working on initiatives to address these issues and promote sustainable development. Additionally, the country is emerging as a key player in the global arena, engaging in international diplomacy and trade.</p>
 
+        <h2>Languages and Cuisine:</h2>
+        <p>India is a linguistically diverse nation, with Hindi and English being the official languages. There are also numerous regional languages spoken across different states. Indian cuisine is renowned worldwide for its variety and flavors. From spicy curries to sweet desserts, Indian food reflects the diversity of its people and their culinary preferences.</p>
+
+        <p>In conclusion, India is a country of contrasts and contradictions, where tradition and modernity coexist. Its cultural richness, economic potential, and commitment to democratic values contribute to its significance on the global stage. As India continues to evolve, it remains a fascinating and complex tapestry of history, culture, and diversity.</p>
+            
+    </div>
+    <footer>Designed By Madhav Madan</footer>
 </body>
 </html>
