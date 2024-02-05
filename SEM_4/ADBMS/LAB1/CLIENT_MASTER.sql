@@ -1,0 +1,8 @@
+Create the tables described below:
+Table name: CLIENT_MASTER
+         Description:   used to store client information.
+
+
+CREATE TABLE CLIENT_MASTER ( CLIENTNO VARCHAR(6), NAME VARCHAR(20), ADDRESS1 VARCHAR(30), ADDRESS2 VARCHAR(30),
+CITY VARCHAR(15), PINCODE INTEGER, STATE VARCHAR(15), BALDUE DECIMAL(10,2)
+);
