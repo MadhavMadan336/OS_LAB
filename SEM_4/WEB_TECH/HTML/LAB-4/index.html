@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taj Mahal - Symbol of Love</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 60px;
+  display: flex;
+}
+
+.sidebar {
+  width: 34%;
+  background-color: wheat; /* Dark brown color for sidebar */
+  color:black;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -34%;
+  transition: left 0.7s, background-color 0.2s;
+  text-align: center;
+}
+
+.sidebar:hover {
+  left: 0;
+}
+@media (min-width: 769px) {
+  .sidebar:hover {
+    left: 0;
+  }
+}
+
+.content {
+  width: 75%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  background-color: #4e342e; /* Dark brown color for header */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.navigation li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navigation li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navigation li a:hover {
+  color: #ffd700; /* Golden color on hover */
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar, .content {
+    width: 100%;
+  }
+
+  .navigation li {
+    display: block;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header" id="header">
+  <h1 style="margin: 0;">Taj Mahal - Symbol of Love</h1>
+  <ul class="navigation">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <h2 style="margin-top: 0;">Welcome to the Taj Mahal</h2>
+    <p>
+      <br><br><strong>About the Taj Mahal:</strong><br><br>
+      The Taj Mahal, located in Agra, India, is an ivory-white marble mausoleum on the banks of the Yamuna River. It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favorite wife, Mumtaz Mahal. The Taj Mahal is considered one of the most beautiful buildings in the world and is a UNESCO World Heritage Site.
+      <br><br><strong>History:</strong><br><br>
+      Construction of the Taj Mahal began in 1632 and took approximately 20 years to complete. It is said that more than 20,000 artisans and craftsmen were involved in its construction. The Taj Mahal represents the finest example of Mughal architecture, combining elements from Persian, Islamic, and Indian architectural styles.
+      <br><br><strong>Architecture:</strong><br><br>
+      The Taj Mahal is renowned for its symmetrical design and exquisite craftsmanship. The main mausoleum is flanked by four minarets, each standing at over 40 meters tall. The central dome reaches a height of around 73 meters and is adorned with intricate carvings and calligraphy.
+      <br><br><strong>Visiting the Taj Mahal:</strong><br><br>
+      Millions of visitors from around the world flock to the Taj Mahal each year to marvel at its beauty. Visitors can explore the mausoleum, gardens, and surrounding structures, learning about its history and significance.
+      <br><br><strong>Experience the Majesty of the Taj Mahal Today!</strong>
+    </p>
+  </div>
+
+  <div class="content">
+    <h2>Taj Mahal - Symbol of Love</h2>
+    <img src="https://whc.unesco.org/uploads/thumbs/site_0252_0008-750-750-20151104113424.jpg" alt="Taj Mahal Image 1">
+    <img src="https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/hero_banner/Taj-Mahal.jpg" alt="Taj Mahal Image 2">
+    <img src="https://cdn-images-1.medium.com/max/767/0*74bdVbfLcKPtXUkO." alt="Taj Mahal Image 3">
+    <img src="https://cdn.pixabay.com/photo/2023/03/22/16/05/tajmahal-7869968_1280.jpg" alt="Taj Mahal Image 4">
+    <img src="https://www.tajmahal.gov.in/images/nightview.jpg" alt="Taj Mahal Image 5">
+    <p>
+      <br><br><strong>Welcome to the Taj Mahal, an architectural masterpiece and symbol of love. Explore the history, architecture, and beauty of this iconic monument. Plan your visit today and experience the majesty of the Taj Mahal!</strong>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
