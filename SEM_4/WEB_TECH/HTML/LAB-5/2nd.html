@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capitalize First Letter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    h2 {
+        text-align: center;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Capitalize First Letter</h2>
+    <input type="text" id="inputString" placeholder="Enter a string...">
+    <button onclick="capitalize()">Convert</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function capitalize() {
+    var inputString = document.getElementById("inputString").value;
+    var resultElement = document.getElementById("result");
+    var capitalizedString = capitalizeFirstLetter(inputString);
+    resultElement.textContent = capitalizedString;
+}
+
+function capitalizeFirstLetter(str) {
+    // Split the string into an array of words
+    let words = str.split(' ');
+    
+    // Iterate through each word
+    for (let i = 0; i < words.length; i++) {
+        // Capitalize the first letter of each word
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    
+    // Join the words back into a single string
+    return words.join(' ');
+}
+</script>
+
+</body>
+</html>
