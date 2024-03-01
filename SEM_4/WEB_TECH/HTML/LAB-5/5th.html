@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odd and Even Numbers</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    h2 {
+        text-align: center;
+    }
+    .numbers {
+        display: flex;
+        justify-content: space-between;
+    }
+    .odd,
+    .even {
+        width: 45%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Odd and Even Numbers from 1 to 100</h2>
+    <div class="numbers">
+        <div class="odd">
+            <h3>Odd Numbers</h3>
+            <ul id="oddList"></ul>
+        </div>
+        <div class="even">
+            <h3>Even Numbers</h3>
+            <ul id="evenList"></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+// Find and display odd and even numbers from 1 to 100
+function findOddEvenNumbers() {
+    let oddList = document.getElementById("oddList");
+    let evenList = document.getElementById("evenList");
+
+    for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+            evenList.innerHTML += "<li>" + i + "</li>";
+        } else {
+            oddList.innerHTML += "<li>" + i + "</li>";
+        }
+    }
+}
+
+// Call the function when the page loads
+window.onload = findOddEvenNumbers;
+</script>
+
+</body>
+</html>
