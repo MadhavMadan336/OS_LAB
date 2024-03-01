@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Longest Word Finder</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <label for="sentence">Enter a sentence:</label>
+    <input type="text" id="sentence">
+    <button onclick="findLongestWord()">Find Longest Word</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function findLongestWord() {
+    // Get the input sentence
+    let sentence = document.getElementById("sentence").value;
+
+    // Split the sentence into an array of words
+    let words = sentence.split(' ');
+
+    // Initialize a variable to store the longest word
+    let longestWord = '';
+
+    // Iterate through each word
+    for (let i = 0; i < words.length; i++) {
+        // If the current word is longer than the previous longest word, update the longestWord variable
+        if (words[i].length > longestWord.length) {
+            longestWord = words[i];
+        }
+    }
+
+    // Display the longest word
+    document.getElementById("result").textContent = "Longest word: " + longestWord;
+}
+</script>
+
+</body>
+</html>
