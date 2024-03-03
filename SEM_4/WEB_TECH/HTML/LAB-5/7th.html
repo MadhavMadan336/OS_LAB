@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number Finder</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #prime-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #prime-list li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prime Numbers in Interval</h1>
+  <div id="prime-list"></div>
+  <br>
+  <label for="lower-bound">Lower Bound:</label>
+  <input type="number" id="lower-bound" min="1" value="10">
+  <label for="upper-bound">Upper Bound:</label>
+  <input type="number" id="upper-bound" min="1" value="30">
+  <button onclick="findPrimes()">Find Primes</button>
+
+  <script>
+    function isPrime(num) {
+      if (num <= 1) return false;
+      if (num <= 3) return true;
+      if (num % 2 === 0 || num % 3 === 0) return false;
+
+      let i = 5;
+      while (i * i <= num) {
+        if (num % i === 0 || num % (i + 2) === 0) return false;
+        i += 6;
+      }
+
+      return true;
+    }
+
+    function printPrimes(lowerBound, upperBound) {
+      const primeList = document.getElementById("prime-list");
+      primeList.innerHTML = ""; // Clear previous results
+
+      for (let i = lowerBound; i <= upperBound; i++) {
+        if (isPrime(i)) {
+          const listItem = document.createElement("li");
+          listItem.textContent = i;
+          primeList.appendChild(listItem);
+        }
+      }
+    }
+
+    function findPrimes() {
+      const lowerBound = parseInt(document.getElementById("lower-bound").value);
+      const upperBound = parseInt(document.getElementById("upper-bound").value);
+
+      if (lowerBound > upperBound) {
+        alert("Lower bound cannot be greater than upper bound!");
+        return;
+      }
+
+      printPrimes(lowerBound, upperBound);
+    }
+  </script>
+</body>
+</html>
