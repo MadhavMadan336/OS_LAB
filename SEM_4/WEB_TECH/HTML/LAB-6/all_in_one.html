@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Functions Menu</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(''); 
+    background-size: cover;
+    background-position: center;
+  }
+  #navbar {
+    background-color: #333;
+    overflow: hidden;
+  }
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  #navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div id="navbar">
+  <a href="#" onclick="displayRandomNumber()">Random Number</a>
+  <a href="#" onclick="changeBackgroundColor()">Change Background Color</a>
+  <a href="#" onclick="displayCourseRegistration()">Course Registration Form</a>
+  <a href="#" onclick="detectEnterKeyPress()">Detect Enter Key</a>
+  <a href="#" onclick="showDialogBoxes()">Dialog Boxes</a>
+  <a href="#" onclick="displayExtractCharacters()">Extract Characters</a>
+  <a href="#" onclick="displayAgeDifference()">Age Difference</a>
+</div>
+
+<div class="container" id="content">
+  <h1>Welcome to JavaScript Functions Menu</h1>
+  <h3>Please select the menu above.</h3>
+</div>
+
+<script>
+  function displayRandomNumber() {
+    document.getElementById('content').innerHTML = `
+      <h2>Random Number Generation</h2>
+      <label>Random Number:</label>
+      <input type="text" id="randomNumber" readonly>
+    `;
+    document.getElementById('randomNumber').value = generateRandomNumber();
+  }
+
+  function changeBackgroundColor() {
+    document.getElementById('content').innerHTML = `
+      <h2>Change Background Color</h2>
+      <button onclick="changeBackgroundColor()">Change Background Color</button>
+    `;
+  }
+
+  function displayCourseRegistration() {
+    document.getElementById('content').innerHTML = `
+      <h2>Course Registration Form</h2>
+      <form onsubmit="return validateForm()">
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" required>
+        <br>
+        <label for="courseCode">Course Code:</label>
+        <input type="text" id="courseCode" required>
+        <br>
+        <button type="submit">Register</button>
+      </form>
+    `;
+  }
+
+  function detectEnterKeyPress() {
+    document.getElementById('content').innerHTML = `
+      <h2>Detect Enter Key Press</h2>
+      <input type="text" placeholder="Press Enter Key" onkeydown="detectEnterKey(event)">
+    `;
+  }
+
+  function showDialogBoxes() {
+    document.getElementById('content').innerHTML = `
+      <h2>Dialog Boxes</h2>
+      <button onclick="showDialogs()">Show Dialog Boxes</button>
+    `;
+  }
+
+  function displayExtractCharacters() {
+    document.getElementById('content').innerHTML = `
+      <h2>Extract Characters from String</h2>
+      <label>Enter a string:</label>
+      <input type="text" id="inputString">
+      <br>
+      <label>Number of characters to extract:</label>
+      <input type="text" id="numCharacters">
+      <button onclick="extractCharacters()">Extract Characters</button>
+      <p id="extractedCharacters"></p>
+    `;
+  }
+
+  function displayAgeDifference() {
+    document.getElementById('content').innerHTML = `
+      <h2>Calculate Age Difference</h2>
+      <label>Date of Birth (YYYY-MM-DD):</label>
+      <input type="text" id="dob">
+      <button onclick="calculateAgeDifference()">Calculate Age Difference</button>
+      <p id="ageDifference"></p>
+    `;
+  }
+
+  function generateRandomNumber() {
+    return Math.floor(Math.random() * 1000);
+  }
+
+  function changeBackgroundColor() {
+    document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+  }
+
+  function validateForm() {
+    var courseName = document.getElementById('courseName').value;
+    var courseCode = document.getElementById('courseCode').value;
+    if (courseName.trim() == '' || courseCode.trim() == '') {
+      alert('Please fill in all fields.');
+      return false;
+    }
+    alert('Registration successful!');
+    return true;
+  }
+
+  function detectEnterKey(event) {
+    if (event.key === 'Enter') {
+      alert('Enter key pressed!');
+    }
+  }
+
+  function showDialogs() {
+    alert('This is an alert box.');
+    var name = prompt('Please enter your name:');
+    if (name) {
+      confirm('Hello ' + name + '! Are you sure you want to proceed?');
+    }
+  }
+
+  function extractCharacters() {
+    var inputString = document.getElementById('inputString').value;
+    var numCharacters = parseInt(document.getElementById('numCharacters').value);
+    var extracted = inputString.slice(0, numCharacters);
+    document.getElementById('extractedCharacters').innerText = 'Extracted Characters: ' + extracted;
+  }
+
+  function calculateAgeDifference() {
+    var dob = new Date(document.getElementById('dob').value);
+    var currentDate = new Date();
+    var ageDifference = currentDate.getFullYear() - dob.getFullYear();
+    document.getElementById('ageDifference').innerText = 'Age Difference: ' + ageDifference + ' years';
+  }
+</script>
+
+</body>
+</html>
