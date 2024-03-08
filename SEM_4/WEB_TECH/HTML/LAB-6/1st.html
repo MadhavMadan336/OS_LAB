@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Number Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #randomNumber {
+        width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        font-size: 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+    #generateButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #generateButton:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<h1>Random Number Generator</h1>
+<input type="text" id="randomNumber" readonly>
+<button id="generateButton">Generate Random Number</button>
+
+<script>
+    // Function to generate a random number
+    function generateRandomNumber() {
+        // Generate a random number between 1 and 100
+        var randomNumber = Math.floor(Math.random() * 100) + 1;
+        // Display the random number in the textbox
+        document.getElementById("randomNumber").value = randomNumber;
+    }
+
+    // Add click event listener to the button
+    document.getElementById("generateButton").addEventListener("click", generateRandomNumber);
+</script>
+</body>
+</html>
