@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #colorDiv {
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        background-color: #ccc;
+        border: 2px solid #000;
+        transition: background-color 0.3s ease; /* Add transition effect */
+    }
+    #colorDiv:hover {
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h1>Change Background Color</h1>
+<div id="colorDiv" onclick="changeColor()"></div>
+
+<script>
+    // Function to change the background color
+    function changeColor() {
+        var colorDiv = document.getElementById("colorDiv");
+        // Generate a random color in hexadecimal format
+        var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        // Set the background color of the element
+        colorDiv.style.backgroundColor = randomColor;
+    }
+</script>
+</body>
+</html>
