@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    form {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    input[type="checkbox"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+<h1>Course Registration Form</h1>
+<form id="registrationForm" onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Your Name">
+    <span id="nameError" class="error"></span><br>
+    <input type="email" id="email" placeholder="Your Email">
+    <span id="emailError" class="error"></span><br>
+    <select id="course">
+        <option value="">Select a Course</option>
+        <option value="course1">Course 1</option>
+        <option value="course2">Course 2</option>
+        <option value="course3">Course 3</option>
+    </select>
+    <span id="courseError" class="error"></span><br>
+    <input type="checkbox" id="terms"> I agree to the terms and conditions
+    <span id="termsError" class="error"></span><br>
+    <input type="submit" value="Register">
+</form>
+
+<script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var course = document.getElementById("course").value;
+        var terms = document.getElementById("terms").checked;
+        var isValid = true;
+
+        // Validate name
+        if (name.trim() === "") {
+            document.getElementById("nameError").innerText = "Please enter your name";
+            isValid = false;
+        } else {
+            document.getElementById("nameError").innerText = "";
+        }
+
+        // Validate email
+        if (email.trim() === "") {
+            document.getElementById("emailError").innerText = "Please enter your email";
+            isValid = false;
+        } else {
+            document.getElementById("emailError").innerText = "";
+        }
+
+        // Validate course
+        if (course === "") {
+            document.getElementById("courseError").innerText = "Please select a course";
+            isValid = false;
+        } else {
+            document.getElementById("courseError").innerText = "";
+        }
+
+        // Validate terms checkbox
+        if (!terms) {
+            document.getElementById("termsError").innerText = "Please agree to the terms and conditions";
+            isValid = false;
+        } else {
+            document.getElementById("termsError").innerText = "";
+        }
+
+        return isValid;
+    }
+</script>
+</body>
+</html>
