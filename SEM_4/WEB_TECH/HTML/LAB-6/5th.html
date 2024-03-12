@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dialog Boxes Example</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<h1>Dialog Boxes Example</h1>
+<button onclick="showAlert()">Show Alert</button>
+<button onclick="showPrompt()">Show Prompt</button>
+<button onclick="showConfirm()">Show Confirm</button>
+
+<script>
+    // Function to show an alert dialog box
+    function showAlert() {
+        alert("This is an alert dialog box!");
+    }
+
+    // Function to show a prompt dialog box
+    function showPrompt() {
+        var result = prompt("Please enter your name:", "");
+        if (result !== null) {
+            alert("Hello, " + result + "! You entered: " + result);
+        }
+    }
+
+    // Function to show a confirm dialog box
+    function showConfirm() {
+        var result = confirm("Are you sure you want to proceed?");
+        if (result) {
+            alert("You clicked OK!");
+        } else {
+            alert("You clicked Cancel!");
+        }
+    }
+</script>
+</body>
+</html>
