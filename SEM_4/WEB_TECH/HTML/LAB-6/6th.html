@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extract Characters from String</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<h1>Extract Characters from String</h1>
+<input type="text" id="inputString" placeholder="Enter a string">
+<br>
+<input type="number" id="numCharacters" placeholder="Number of characters to extract">
+<br>
+<button onclick="extractCharacters()">Extract Characters</button>
+<p id="result"></p>
+
+<script>
+    // Function to extract a specified number of characters from a string
+    function extractCharacters() {
+        // Get the input string and number of characters
+        var inputString = document.getElementById("inputString").value;
+        var numCharacters = parseInt(document.getElementById("numCharacters").value);
+
+        // Check if the input string is empty or number of characters is not valid
+        if (inputString.trim() === "" || isNaN(numCharacters) || numCharacters <= 0) {
+            alert("Please enter a valid input string and number of characters.");
+            return;
+        }
+
+        // Extract characters from the string
+        var extractedCharacters = inputString.substring(0, numCharacters);
+
+        // Display the result
+        document.getElementById("result").innerText = "Extracted characters: " + extractedCharacters;
+    }
+</script>
+</body>
+</html>
