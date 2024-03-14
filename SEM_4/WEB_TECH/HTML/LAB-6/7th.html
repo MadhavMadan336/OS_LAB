@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input[type="date"] {
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+<h1>Age Calculator</h1>
+<input type="date" id="dob" placeholder="Enter your date of birth">
+<br>
+<button onclick="calculateAge()">Calculate Age</button>
+<p id="result"></p>
+
+<script>
+    // Function to calculate the age based on the date of birth
+    function calculateAge() {
+        // Get the date of birth entered by the user
+        var dobInput = document.getElementById("dob").value;
+
+        // Convert the date string to a Date object
+        var dob = new Date(dobInput);
+
+        // Get the current date
+        var currentDate = new Date();
+
+        // Calculate the difference in milliseconds between the current date and the date of birth
+        var timeDiff = currentDate.getTime() - dob.getTime();
+
+        // Calculate the age based on the difference in milliseconds
+        var ageInMilliseconds = new Date(timeDiff);
+
+        // Calculate the year difference from the age
+        var age = Math.abs(ageInMilliseconds.getUTCFullYear() - 1970);
+
+        // Display the result
+        document.getElementById("result").innerText = "Your age is: " + age + " years";
+    }
+</script>
+</body>
+</html>
