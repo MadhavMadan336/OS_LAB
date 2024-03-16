@@ -1,4 +1,6 @@
-This file provides an overview of the SGS Food Restaurant website built with HTML, CSS, and Javascript.
+**************This file provides an overview of the SGS Food Restaurant website built with HTML, CSS, and Javascript.
+![image](https://github.com/MadhavMadan336/SEM_3/assets/122387627/16f71976-6b46-4b78-b8c7-74b1e6223aab)
+
 
 Website Structure:
 
