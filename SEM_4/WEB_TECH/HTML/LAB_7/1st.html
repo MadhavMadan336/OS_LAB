@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Textbox Background Color with AngularJS</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+    #myTextbox {
+        width: 200px;
+        height: 30px;
+        padding: 5px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+    <div ng-controller="ColorController">
+        <input type="text" id="myTextbox" ng-model="backgroundColor" placeholder="Type color name or code here">
+    </div>
+
+<script>
+    angular.module('myApp', [])
+        .controller('ColorController', function($scope) {
+            $scope.backgroundColor = ''; // Initial background color
+
+            $scope.$watch('backgroundColor', function(newValue, oldValue) {
+                var color = newValue.trim();
+
+                // Check if the entered value is a valid color
+                if (/^#[0-9A-F]{6}$/i.test(color) || /^(rgb|rgba)/.test(color)) {
+                    $scope.backgroundColor = color; // Set background color
+                } else {
+                    $scope.backgroundColor = ''; // Reset background color if invalid color
+                }
+            });
+        });
+</script>
+</body>
+</html>
