@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tableApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Tables</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="TableController">
+    <h2>Display Table</h2>
+    <table>
+      <tr ng-repeat="row in tableData">
+        <td>{{ row.name }}</td>
+        <td>{{ row.age }}</td>
+      </tr>
+    </table>
+
+    <h2>Display Table with Order by Filter</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+      <tr ng-repeat="row in tableData | orderBy:'name'">
+        <td>{{ row.name }}</td>
+        <td>{{ row.age }}</td>
+      </tr>
+    </table>
+
+    <h2>Display Table with Even and Odd Rows</h2>
+    <table>
+      <tr ng-repeat="row in tableData" ng-class="{ 'even-row': $even, 'odd-row': $odd }">
+        <td>{{ row.name }}</td>
+        <td>{{ row.age }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    var app = angular.module('tableApp', []);
+    app.controller('TableController', function($scope) {
+      $scope.tableData = [
+        { name: 'John', age: 30 },
+        { name: 'Alice', age: 25 },
+        { name: 'Bob', age: 35 },
+        { name: 'Carol', age: 40 },
+        { name: 'David', age: 45 }
+      ];
+    });
+  </script>
+  
+  <style>
+    .even-row { background-color: #f2f2f2; }
+    .odd-row { background-color: #e6e6e6; }
+  </style>
+</body>
+</html>
