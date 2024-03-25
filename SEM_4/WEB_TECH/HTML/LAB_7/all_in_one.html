@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Experiment</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    .even { background-color: lightblue; }
+    .odd { background-color: lightgreen; }
+  </style>
+</head>
+<body>
+
+<div ng-controller="MainController">
+  <!-- 1. Background color change based on input -->
+  <input type="text" ng-model="bgColor" ng-style="{ 'background-color': bgColor }" placeholder="Enter color">
+
+  <!-- 2. Cost calculator -->
+  <input type="number" ng-model="quantity" placeholder="Quantity">
+  <input type="number" ng-model="price" placeholder="Price">
+  <p>Total Cost: {{ quantity * price }}</p>
+
+  <!-- 3. Simple search filter -->
+  <input type="text" ng-model="searchQuery" placeholder="Search">
+  <ul>
+    <li ng-repeat="item in items | filter: searchQuery">{{ item }}</li>
+  </ul>
+
+  <!-- 4. AngularJS Tables -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in people" ng-class="{ 'even': $even, 'odd': $odd }">
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  angular.module('myApp', [])
+    .controller('MainController', function($scope) {
+      // Sample data for table
+      $scope.people = [
+        { name: 'John', age: 25 },
+        { name: 'Alice', age: 30 },
+        { name: 'Bob', age: 22 },
+        { name: 'Eve', age: 28 },
+        { name: 'Charlie', age: 35 }
+      ];
+
+      // Sample data for search filter
+      $scope.items = ['Apple', 'Banana', 'Orange', 'Mango'];
+    });
+</script>
+
+</body>
+</html>
