@@ -2,3 +2,8 @@
 SELECT sp.scode, sp.pcode
 FROM Supplier_Part sp
 ORDER BY sp.scode ASC;
+
+2. Get the details of supplier who operate from Bombay with turnover 50.
+SELECT *
+FROM Supplier
+WHERE scity = 'Bombay' AND turnover = 50;
