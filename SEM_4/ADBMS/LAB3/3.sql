@@ -7,3 +7,8 @@ ORDER BY sp.scode ASC;
 SELECT *
 FROM Supplier
 WHERE scity = 'Bombay' AND turnover = 50;
+
+
+3. Get the total number of supplier.
+SELECT COUNT(*) AS total_suppliers
+FROM Supplier;
