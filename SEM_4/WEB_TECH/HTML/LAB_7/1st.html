@@ -1,40 +1,123 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Change Textbox Background Color with AngularJS</title>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-<style>
-    #myTextbox {
-        width: 200px;
-        height: 30px;
-        padding: 5px;
-        font-size: 16px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Experiment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        /* CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
-<body>
-    <div ng-controller="ColorController">
-        <input type="text" id="myTextbox" ng-model="backgroundColor" placeholder="Type color name or code here">
+
+<body ng-controller="myCtrl">
+
+    <div class="navbar">
+        <a href="#" ng-click="showTask('changeColor')">Change Textbox Color</a>
+        <a href="#" ng-click="showTask('costCalculator')">Cost Calculator</a>
+        <a href="#" ng-click="showTask('searchFilter')">Search Filter</a>
     </div>
 
-<script>
-    angular.module('myApp', [])
-        .controller('ColorController', function($scope) {
-            $scope.backgroundColor = ''; // Initial background color
+    <div class="container">
+        <div ng-show="currentTask === 'changeColor'">
+            <h2>Change Textbox Color</h2>
+            <input type="text" ng-model="bgColor" style="background-color: {{bgColor}}; color: {{textColor}};">
+        </div>
 
-            $scope.$watch('backgroundColor', function(newValue, oldValue) {
-                var color = newValue.trim();
+        <div ng-show="currentTask === 'costCalculator'">
+            <h2>Cost Calculator</h2>
+            <input type="number" ng-model="quantity" placeholder="Quantity"><br>
+            <input type="number" ng-model="price" placeholder="Price per item"><br>
+            <p>Total Cost: {{quantity * price | currency}}</p>
+        </div>
 
-                // Check if the entered value is a valid color
-                if (/^#[0-9A-F]{6}$/i.test(color) || /^(rgb|rgba)/.test(color)) {
-                    $scope.backgroundColor = color; // Set background color
+        <div ng-show="currentTask === 'searchFilter'">
+            <h2>Search Filter</h2>
+            <input type="text" ng-model="searchQuery" placeholder="Search...">
+            <ul>
+                <li ng-repeat="item in items | filter:searchQuery">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function ($scope) {
+            $scope.currentTask = '';
+
+            // Sample items for search filter
+            $scope.items = [
+        'Apple', 'Banana', 'Orange', 'Pineapple', 'Grapes', 'Mango',
+        'Strawberry', 'Kiwi', 'Watermelon', 'Cherry', 'Peach',
+        'Pear', 'Plum', 'Blueberry', 'Raspberry', 'Apricot',
+        'Lemon', 'Lime', 'Pomegranate', 'Coconut'
+    ];
+
+            $scope.showTask = function (task) {
+                $scope.currentTask = task;
+                // Calculate text color based on background brightness
+                $scope.textColor = isDark($scope.bgColor) ? '#fff' : '#000';
+            };
+
+            // Function to check if the background color is dark or light
+            function isDark(color) {
+                var match = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                if (match) {
+                    var r = match[1];
+                    var g = match[2];
+                    var b = match[3];
+                    var brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                    return brightness < 128;
                 } else {
-                    $scope.backgroundColor = ''; // Reset background color if invalid color
+                    return false;
                 }
-            });
+            }
         });
-</script>
+    </script>
 </body>
+
 </html>
