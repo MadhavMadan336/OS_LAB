@@ -1,0 +1,5 @@
+1.	List the Deptno where there are no emps. 
+  
+SELECT DEPTNO
+FROM DEPT
+WHERE DEPTNO NOT IN (SELECT DISTINCT DEPTNO FROM EMP);
