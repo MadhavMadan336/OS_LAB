@@ -43,3 +43,23 @@ FROM EMP
 GROUP BY DEPTNO
 HAVING COUNT(*) > 3;
 
+
+6.	List the names of the emps who are getting the highest sal dept wise. 
+
+SELECT ENAME
+FROM EMP E1
+WHERE SAL = (
+    SELECT MAX(SAL)
+    FROM EMP E2
+    WHERE E1.DEPTNO = E2.DEPTNO
+);
+
+
+7.	List the Deptno and their average salaries for dept with the average salary less than the averages for all departments.  
+
+SELECT DEPTNO, AVG(SAL) AS "Average Salary"
+FROM EMP
+GROUP BY DEPTNO
+HAVING AVG(SAL) < (SELECT AVG(SAL) FROM EMP);
+
+
